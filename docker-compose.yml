@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  #MYSQL
+  database:
+    image: mysql:latest
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: Impacta123
+      MYSQL_DATABASE: impacta-product
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: IMPACTA@123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - backend
+
+
+  # #API
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile.dev
+  #   container_name: api
+  #   ports:
+  #     - "3000:3000"    
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules             
+  #   networks:
+  #     - backend    
+  #   depends_on:
+  #     - database
+
+networks:
+  backend:
+    driver: 'bridge'

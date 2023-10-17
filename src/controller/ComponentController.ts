@@ -92,7 +92,7 @@ private productRepository = AppDataSource.getRepository(Product)
             return savedComponent;
         } catch (error) {
             console.error(error);
-            return response.status(500).send({ message: 'Ocorreu um erro ao salvar o componente, verifique se já não foi cadastrado' });
+            return response.status(500).send({ message: 'Ocorreu um erro ao salvar o componente, contate o administrador' });
         }
      }
 }
